@@ -13,3 +13,55 @@
 - Systeme de questions , 15 questions 5 facile , 5 moyen et 5 difficile. 
 - A la fin afficher les calculs posés avec les réponses que l'utilisateur a mit et la bonne réponse ainsi que le nombre de point gagné par question/ points totaux.
 
+import random
+point = 0
+
+
+print("\t\t\t\t=== VIVE LE CALCUL MENTAL ===\n\n")
+a = int(input("Combien de parties voulez-vous faire ?: " )) 
+l1 = ['+','-']
+l2 = ['+','/','*','-']
+l3 = ['/','*']
+x = int(input("Vous choisissez le niveau 1 , 2 ou 3 ? : "))
+
+ 
+for i in range (0,a,1) :
+    if x == 1 :
+       premier_nombre = random.randint(1,100)
+       second_nombre = random.randint(1,200)
+       operation = random.choice(l1)
+       calcul = int(premier_nombre) + str(operation) + int(second_nombre)
+       print(calcul)
+       
+       
+    elif x == 2:
+       premier_nombre = random.randint(1,50)
+       second_nombre = random.randint(1,20)
+       operation = random.choice(l2)
+       reponseVraie = int(premier_nombre) + str(operation) + int(second_nombre)
+       print(calcul)
+    else:
+       premier_nombre = random.randint(1,100)
+       second_nombre = random.randint(1,20)
+       operation = random.choice(l3)
+       reponseVraie = int(premier_nombre) + str(operation) + int(second_nombre)
+
+
+    if reponseUtilisateur != reponseVraie and vie != 1  : 
+        print("Faux , essaie encore !") 
+        vie = 1 
+    elif reponseUtilisateur != reponseVraie and vie == 1 :
+        print("Faux , ça fait deux erreurs donc on change de question ! ")
+        point += 0
+
+    elif reponseUtilisateur == reponseVraie and vie == 1 :
+        print("Enfin c'est pas trop tôt ! ")
+        point += 1 
+    else:
+        print("Du premier coup , bien joué !")
+        point += 3
+            
+        
+        
+            
+i += 1
