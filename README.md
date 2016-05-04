@@ -19,49 +19,65 @@ point = 0
 
 print("\t\t\t\t=== VIVE LE CALCUL MENTAL ===\n\n")
 a = int(input("Combien de parties voulez-vous faire ?: " )) 
-l1 = ['+','-']
-l2 = ['+','/','*','-']
-l3 = ['/','*']
+
 x = int(input("Vous choisissez le niveau 1 , 2 ou 3 ? : "))
 
  
-for i in range (0,a,1) :
+for i in range (0,a) :
+    vie = 3
     if x == 1 :
        premier_nombre = random.randint(1,100)
        second_nombre = random.randint(1,200)
-       operation = random.choice(l1)
-       calcul = int(premier_nombre) + str(operation) + int(second_nombre)
-       print(calcul)
+       operation = random.randint(1,2)
+       if operation == 1 : 
+       		print(int(premier_nombre) + '+' + int(second_nombre))
+       		reponseVraie = premier_nombre + second_nombre
+       else :
+       		print(int(premier_nombre) + '-' + int(second_nombre))
+       		reponseVraie = premier_nombre - second_nombre
        
        
     elif x == 2:
        premier_nombre = random.randint(1,50)
        second_nombre = random.randint(1,20)
-       operation = random.choice(l2)
-       reponseVraie = int(premier_nombre) + str(operation) + int(second_nombre)
-       print(calcul)
+       operation = random.randint(1,3)
+       if operation == 1 : 
+       		print(int(premier_nombre) + '+' + int(second_nombre))
+       		reponseVraie = premier_nombre + second_nombre
+       elif operation == 2 :
+       		print(int(premier_nombre) + '-' + int(second_nombre))
+       		reponseVraie = premier_nombre - second_nombre
+       else:
+       		print(int(premier_nombre) + '*' + int(second_nombre))
+       		reponseVraie = premier_nombre * second_nombre
     else:
        premier_nombre = random.randint(1,100)
-       second_nombre = random.randint(1,20)
-       operation = random.choice(l3)
-       reponseVraie = int(premier_nombre) + str(operation) + int(second_nombre)
+       second_nombre = random.randint(1,50)
+       operation = random.randint(1,3)
+       if operation == 1 : 
+       		print(int(premier_nombre) + '+' + int(second_nombre))
+       		reponseVraie = premier_nombre + second_nombre
+       elif operation == 2 :
+       		print(int(premier_nombre) + '-' + int(second_nombre))
+       		reponseVraie = premier_nombre - second_nombre
+       else :
+       		print(int(premier_nombre) + '*' + int(second_nombre))
+       		reponseVraie = premier_nombre * second_nombre
+       
+    reponseUtilisateur = int(input("Quelle est votre réponse a ce calcul ?")
 
-
-    if reponseUtilisateur != reponseVraie and vie != 1  : 
-        print("Faux , essaie encore !") 
-        vie = 1 
-    elif reponseUtilisateur != reponseVraie and vie == 1 :
-        print("Faux , ça fait deux erreurs donc on change de question ! ")
-        point += 0
-
-    elif reponseUtilisateur == reponseVraie and vie == 1 :
-        print("Enfin c'est pas trop tôt ! ")
-        point += 1 
-    else:
-        print("Du premier coup , bien joué !")
-        point += 3
-            
+    if vie > 0 :
         
-        
-            
-i += 1
+        if reponseUtilisateur != reponseVraie and vie == 1 :
+        	print("Faux , ça fait deux erreurs donc on change de question ! ")
+    		point += 0
+			vie -= 1
+        elif reponseUtilisateur == reponseVraie and vie != 3 :
+        	print("Enfin c'est pas trop tôt ! ")
+        	point += 1 
+    	   elif 
+    		print("Faux , essaie encore !") 
+        	vie -= 1 
+    	   else:
+        	print("Du premier coup , bien joué !")
+        	point += 3
