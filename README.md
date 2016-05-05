@@ -85,12 +85,9 @@ for i in range (0,a) :
 
     while vie > 0 :
         
-        if reponseUtilisateur == reponseVraie and vie != 3 :
-           print("Enfin c'est pas trop tôt ! ")
-           point += 1
-           chance = 0
+       
              
-        elif reponseUtilisateur != reponseVraie and vie != 1 :
+        if reponseUtilisateur != reponseVraie and vie != 1 :
             print("Faux , essaie encore !") 
             vie -= 1
             chance = 1
@@ -104,7 +101,7 @@ for i in range (0,a) :
                     bonne_reponse = 'La bonne réponse était ' + str(reponseVraie) + '...'
                     print(bonne_reponse)
                     point += 0
-        
+                    
         else:
            print("Du premier coup , bien joué !")
            point += 3
