@@ -86,20 +86,32 @@ for i in range (0,a) :
     while vie > 0 :
         
         if reponseUtilisateur == reponseVraie and vie != 3 :
-        	print("Enfin c'est pas trop tôt ! ")
-        	point += 1 
+           print("Enfin c'est pas trop tôt ! ")
+           point += 1
+           chance = 0
+             
         elif reponseUtilisateur != reponseVraie and vie != 1 :
             print("Faux , essaie encore !") 
             vie -= 1
-        elif reponseUtilisateur != reponseVraie and vie == 1 :
-            print("Faux , ça fait deux erreurs on change de question !") 
-            vie -= 1
+            chance = 1
+            if chance == 1 :
+                reponseUtilisateur2 = int(input("Quelle est votre réponse a ce calcul ?"))
+                if reponseUtilisateur2 == reponseVraie : 
+                    print("Enfin c'est pas trop tôt ! ")
+                    point += 1
+                else : 
+                    print("Faux , ça fait deux erreurs on change de question !")
+                    bonne_reponse = 'La bonne réponse était ' + str(reponseVraie) + '...'
+                    print(bonne_reponse)
+                    point += 0
         
         else:
-        	print("Du premier coup , bien joué !")
-        	point += 3
+           print("Du premier coup , bien joué !")
+           point += 3
+           chance = 0
         break
-        
-point += 0
+
+      
+
 reponse = 'Vous avez eu ' + str(point) + ' points.'
 print(reponse)
