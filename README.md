@@ -15,34 +15,46 @@
 
 from tkinter import ttk
 
-fenetre = Tk()
 
 label = ttk.Label(fenetre, text=" === VIVE LE CALCUL MENTAL === ")
 label.pack()
+label = ttk.Label(fenetre, text=" Nouvelle partie ? ")
+label.pack()
+
+bouton1=Button(fenetre, text="NON" , command = fenetre.destroy )
+bouton1.pack(side=LEFT , padx=50)
+
+bouton2=Button(fenetre, text="OUI"   )
+bouton2.pack(side=RIGHT , padx=40)
+
 
 fenetre.mainloop()
-import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
 
+import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
+ 
 point = 0
 
 
-print("\t\t\t\t=== VIVE LE CALCUL MENTAL ===\n\n")
-a = int(input("Combien de parties voulez-vous faire ?: " )) # L'utilisateur choisit le nombre de parties qu'il voudra faire.
 
-x = int(input("Vous choisissez le niveau 1 , 2 ou 3 ? : ")) # L'utilisateur introduira un nombre entre 1 et 3 lui permettant de choisir un niveau plus ou moins facile.
+
+nombre_parties = int(input("Combien de parties voulez-vous faire? : "))
+niveau = int(input("Vous choisissez le niveau 1 , 2 ou 3 ? : ")) # L'utilisateur introduira un nombre entre 1 et 3 lui permettant de choisir un niveau plus ou moins facile.
+
 vie = 3
- 
-for i in range (0,a) : # On crée la boucle par rapport au nombre de parties choisies
+
+for i in range (0,nombre_parties) : # On crée la boucle par rapport au nombre de parties choisies
     
-    if x == 1 :
+    if niveau == 1 :
+        
        premier_nombre = random.randint(1,200) # Le premier nombre choisit aléatoirement se situera entre 1 et 200
        second_nombre = random.randint(1,100) # Le second nombre choisit aléatoirement se situera entre 1 et 100
        operation = random.randint(1,2) # Le signe de l'opération sera choisi aléatoirement parmi les signes disponibles en fonction du niveau
        
-       if operation == 1 : 
-           print(premier_nombre)  
-           print('+')  
-           print(second_nombre)
+       if operation == 1 :
+           
+           print(premier_nombre)  # On affiche le premier nombre qui a été choisi aléatoirement
+           print('+')  # On affiche le signe correspondant ( 1 = + , 2 = - , 3 = *)
+           print(second_nombre) # On affiche le second nombre qui a été choisi aléatoirement
            reponseVraie = premier_nombre + second_nombre # Il s'agit du résultat que l'utilisateur est censé obtenir
        else :
            
@@ -52,40 +64,55 @@ for i in range (0,a) : # On crée la boucle par rapport au nombre de parties cho
            reponseVraie = premier_nombre - second_nombre 
            
        
-    elif x == 2:
+    elif niveau == 2:
+        
        premier_nombre = random.randint(1,50) # Le premier nombre choisit aléatoirement se situera entre 1 et 50
        second_nombre = random.randint(1,20) # Le premier nombre choisit aléatoirement se situera entre 1 et 20
        operation = random.randint(1,3)
+       
        if operation == 1 : 
+           
            print(premier_nombre)  
            print('+')  
-           print(second_nombre)
-           reponseVraie = premier_nombre + second_nombre
+           print(second_nombre) 
+           reponseVraie = premier_nombre + second_nombre 
+           
        elif operation == 2 :
+           
            print(premier_nombre)  
            print('-')  
            print(second_nombre)
            reponseVraie = premier_nombre - second_nombre
+           
        else:
+           
            print(premier_nombre)  
            print('*')  
            print(second_nombre)
            reponseVraie = premier_nombre * second_nombre
-    elif x == 3 :
+           
+    elif niveau == 3 :
+        
        premier_nombre = random.randint(1,100)
        second_nombre = random.randint(1,50)
        operation = random.randint(1,3)
+       
        if operation == 1 : 
+           
            print(premier_nombre)  
            print('+')  
            print(second_nombre)
            reponseVraie = premier_nombre + second_nombre
+           
        elif operation == 2 :
+           
            print(premier_nombre)  
            print('-')  
            print(second_nombre)
            reponseVraie = premier_nombre - second_nombre
+           
        else :
+           
            print(premier_nombre)  
            print('*')  
            print(second_nombre)
@@ -105,18 +132,23 @@ for i in range (0,a) : # On crée la boucle par rapport au nombre de parties cho
             chance = 1 # L'utilisateur a le droit à un second essai, il peut recommencer.
             
             if chance == 1 :
+                
                 reponseUtilisateur2 = int(input("Quelle est votre réponse a ce calcul ?")) # 2ème tentative de l'utilisateur
                 
                 if reponseUtilisateur2 == reponseVraie : # L'utilisateur a répondu correctement au bout de sa deuxième tentative.
+                
                     print("Enfin c'est pas trop tôt ! ")
                     point += 1 # L'utilisateur gagne 1 point au lieu de 3 ...
+                    
                 else : 
+                    
                     print("Faux , ça fait deux erreurs on change de question !") # L'utilisateur n'a pas trouvé la bonne réponse dommage ...
                     bonne_reponse = 'La bonne réponse était ' + str(reponseVraie) + ' dommage ...' # Puisque l'utilisateur n'a pas trouvé la bonne réponse on lui affiche la bonne réponse.
                     print(bonne_reponse)
                     point += 0 # L'utilisateur ne gagne donc pas de points.
                     
         else:
+            
            print("Du premier coup , bien joué !") # L'utilisateur trouve la bonne réponse du premier coup
            point += 3 # L'utilisateur gagne donc 3 points
            chance = 0 # Il n'a donc pas besoin de chance ...
@@ -128,4 +160,3 @@ points_max = a * 3 # Nombre de points maximum que peut obtenir l'utilisateur en 
 reponse = 'Vous avez eu ' + str(point) + ' points sur ' + str(points_max) + ' maximum, bien joué ! ' # A la fin de la partie l'utilisateur voit le nombre de points qu'il a eu au total 
 
 print(reponse) # On lui affiche son nombre de points
-
