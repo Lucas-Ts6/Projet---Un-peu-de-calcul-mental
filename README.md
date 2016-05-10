@@ -13,6 +13,14 @@
 - Systeme de questions , 15 questions 5 facile , 5 moyen et 5 difficile. 
 - A la fin afficher les calculs posés avec les réponses que l'utilisateur a mit et la bonne réponse ainsi que le nombre de point gagné par question/ points totaux.
 
+from tkinter import ttk
+
+fenetre = Tk()
+
+label = ttk.Label(fenetre, text=" === VIVE LE CALCUL MENTAL === ")
+label.pack()
+
+fenetre.mainloop()
 import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
 
 point = 0
