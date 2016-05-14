@@ -153,7 +153,7 @@ for i in range (0,nombre_parties) : # On crée la boucle par rapport au nombre d
                     point += 0 # L'utilisateur ne gagne donc pas de points.
                     fin = time.time()
                     temps_total = int(fin) - int(debut)
-                    phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul sans trouver la réponse ? Dépêche toi !'
+                    phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul sans trouver la réponse ? Ba bravo !'
                     print(phrase_temps)
         else:
             
