@@ -13,6 +13,7 @@
 - Systeme de questions , 15 questions 5 facile , 5 moyen et 5 difficile. 
 - A la fin afficher les calculs posés avec les réponses que l'utilisateur a mit et la bonne réponse ainsi que le nombre de point gagné par question/ points totaux.
 
+import time
 from tkinter import ttk
 
 
@@ -30,6 +31,7 @@ bouton2.pack(side=RIGHT , padx=40)
 
 fenetre.mainloop()
 
+
 import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
  
 point = 0
@@ -43,7 +45,7 @@ niveau = int(input("Vous choisissez le niveau 1 , 2 ou 3 ? : ")) # L'utilisateur
 vie = 3
 
 for i in range (0,nombre_parties) : # On crée la boucle par rapport au nombre de parties choisies
-    
+    debut = time.time()
     if niveau == 1 :
         
        premier_nombre = random.randint(1,200) # Le premier nombre choisit aléatoirement se situera entre 1 et 200
@@ -139,23 +141,32 @@ for i in range (0,nombre_parties) : # On crée la boucle par rapport au nombre d
                 
                     print("Enfin c'est pas trop tôt ! ")
                     point += 1 # L'utilisateur gagne 1 point au lieu de 3 ...
-                    
+                    fin = time.time()
+                    temps_total = int(fin) - int(debut)
+                    phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêche toi !'
+                    print(phrase_temps)
                 else : 
                     
                     print("Faux , ça fait deux erreurs on change de question !") # L'utilisateur n'a pas trouvé la bonne réponse dommage ...
                     bonne_reponse = 'La bonne réponse était ' + str(reponseVraie) + ' dommage ...' # Puisque l'utilisateur n'a pas trouvé la bonne réponse on lui affiche la bonne réponse.
                     print(bonne_reponse)
                     point += 0 # L'utilisateur ne gagne donc pas de points.
-                    
+                    fin = time.time()
+                    temps_total = int(fin) - int(debut)
+                    phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul sans trouver la réponse ? Dépêche toi !'
+                    print(phrase_temps)
         else:
             
            print("Du premier coup , bien joué !") # L'utilisateur trouve la bonne réponse du premier coup
            point += 3 # L'utilisateur gagne donc 3 points
            chance = 0 # Il n'a donc pas besoin de chance ...
-           
+           fin = time.time()
+           temps_total = int(fin) - int(debut)
+           phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêche toi !'
+           print(phrase_temps)
         break # La boucle while s'arrête afin de reprendre un nouveau calcul et que son nombre de vie soit réinitialisé 
     
-points_max = a * 3 # Nombre de points maximum que peut obtenir l'utilisateur en fonction de son nombre de partie
+points_max = nombre_parties * 3 # Nombre de points maximum que peut obtenir l'utilisateur en fonction de son nombre de partie
 
 reponse = 'Vous avez eu ' + str(point) + ' points sur ' + str(points_max) + ' maximum, bien joué ! ' # A la fin de la partie l'utilisateur voit le nombre de points qu'il a eu au total 
 
