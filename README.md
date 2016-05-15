@@ -15,24 +15,24 @@
 
 import time
 from tkinter import ttk
+import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
 
+fenetre = ttk()
 
-label = ttk.Label(fenetre, text=" === VIVE LE CALCUL MENTAL === ")
+label = ttk.label(fenetre, text = " === VIVE LE CALCUL MENTAL === ")
 label.pack()
-label = ttk.Label(fenetre, text=" Nouvelle partie ? ")
+label = ttk.label(fenetre, text = " Nouvelle partie ? ")
 label.pack()
 
-bouton1=Button(fenetre, text="NON" , command = fenetre.destroy )
-bouton1.pack(side=LEFT , padx=50)
+bouton1 = ttk.Button(fenetre, text = " NON " , command = fenetre.destroy)
+bouton1.pack()
 
-bouton2=Button(fenetre, text="OUI"   )
-bouton2.pack(side=RIGHT , padx=40)
-
+bouton2 = ttk.Button(fenetre, text = " OUI " )
+bouton2.pack()
 
 fenetre.mainloop()
 
 
-import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
  
 point = 0
 
