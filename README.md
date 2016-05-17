@@ -14,30 +14,9 @@
 - A la fin afficher les calculs posés avec les réponses que l'utilisateur a mit et la bonne réponse ainsi que le nombre de point gagné par question/ points totaux.
 
 import time
-from tkinter import ttk
 import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
 
-fenetre = ttk()
-
-label = ttk.label(fenetre, text = " === VIVE LE CALCUL MENTAL === ")
-label.pack()
-label = ttk.label(fenetre, text = " Nouvelle partie ? ")
-label.pack()
-
-bouton1 = ttk.Button(fenetre, text = " NON " , command = fenetre.destroy)
-bouton1.pack()
-
-bouton2 = ttk.Button(fenetre, text = " OUI " )
-bouton2.pack()
-
-fenetre.mainloop()
-
-
- 
 point = 0
-
-
-
 
 nombre_parties = int(input("Combien de parties voulez-vous faire? : "))
 niveau = int(input("Vous choisissez le niveau 1 , 2 ou 3 ? : ")) # L'utilisateur introduira un nombre entre 1 et 3 lui permettant de choisir un niveau plus ou moins facile.
