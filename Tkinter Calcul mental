@@ -1,0 +1,27 @@
+import time
+from tkinter import ttk
+from tkinter import messagebox
+
+fenetre = Tk()
+
+def NouvellePartie():
+    
+    label = ttk.Label(fenetre, text = " === VIVE LE CALCUL MENTAL === ")
+    label.pack()
+    label = ttk.Label(fenetre, text = " Nouvelle partie ? ")
+    label.pack()
+
+bouton1 = ttk.Button(fenetre, text = " NON " , command = fenetre.destroy)
+bouton1.pack()
+
+bouton2 = ttk.Button(fenetre, text = " Niveau 1 " , command = NouvellePartie )
+bouton2.pack()
+
+bouton3 = ttk.Button(fenetre, text = " Niveau 2 " , command = NouvellePartie )
+bouton3.pack()
+
+bouton4 = ttk.Button(fenetre, text = " Niveau 3 " , command = NouvellePartie )
+bouton4.pack()
+
+NouvellePartie()
+fenetre.mainloop()
