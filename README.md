@@ -167,6 +167,6 @@ while continuer:
         print(reponse) # On lui affiche son nombre de points
         Nouvelle_partie = input("Nouvelle partie ? ")
     
-if Nouvelle_partie not in ('o', 'oui', 'ok' , 'yes'):
+    if Nouvelle_partie not in ('o', 'oui', 'ok' , 'yes'):
     
-    continuer = False
+        continuer = False
