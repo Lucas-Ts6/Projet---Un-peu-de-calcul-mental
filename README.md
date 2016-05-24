@@ -16,9 +16,9 @@
 import time # En important le module time , on va pouvoir utiliser le temps dans notre programme 
 import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
 
-continuer = True
+continuer = True # On initialise la variable pour qu'elle puisse rentrer dans la boucle while
 
-while continuer:
+while continuer:  # La boucle while permet à l'utilisateur de lancer le programme autant de fois qu'il le souhaitera
     
     
     nombre_parties = int(input("Combien de parties voulez-vous faire? : ")) # On génère une variable qui permettera à l'utilisateur de choisir le nombre de parties qu'il voudra faire
