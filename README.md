@@ -20,39 +20,42 @@ continuer = True
 
 while continuer:
     
+    
     nombre_parties = int(input("Combien de parties voulez-vous faire? : ")) # On génère une variable qui permettera à l'utilisateur de choisir le nombre de parties qu'il voudra faire
     
-    niveau = int(input("Vous choisissez le niveau 1 , 2 ou 3 ? : ")) # L'utilisateur introduira un nombre entre 1 et 3 lui permettant de choisir un niveau plus ou moins facile.
+    print('Le niveau 4 correspond aux tables de multiplication apprises en primaire')
+    
+    niveau = int(input("Vous choisissez le niveau 1 , 2 ,3 ou 4 ? : ")) # L'utilisateur introduira un nombre entre 1 et 3 lui permettant de choisir un niveau plus ou moins facile.
     
     point = 0 # On initialise le nombre de points de l'utilisateur
     
     vie = 3 
     
+    temps_manche = 0
+    
     for i in range (0,nombre_parties) : # On crée la boucle par rapport au nombre de parties choisies
         
         debut = time.time() # On enregistre le temps lorsque le programme se lance 
         
-        if niveau == 1 : # Permet de choisir la difficulté au rang facile
+        if niveau == 1 :
             
            premier_nombre = random.randint(1,200) # Le premier nombre choisit aléatoirement se situera entre 1 et 200
            second_nombre = random.randint(1,100) # Le second nombre choisit aléatoirement se situera entre 1 et 100
            operation = random.randint(1,2) # Le signe de l'opération sera choisi aléatoirement parmi les signes disponibles en fonction du niveau
            
-           if operation == 1 : 
+           if operation == 1 :
                
-               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' + ' + str(second_nombre) + ' ?' # Calculer la somme du premier et du second nombre
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' + ' + str(second_nombre) + ' ?'
                print(calcul)
                reponseVraie = premier_nombre + second_nombre
                
            else : 
                
-               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' - ' + str(second_nombre) + ' ?'  # Calculer la différence du premier et du second nombre
-               print(calcul)
-               reponseVraie = premier_nombre - second_nombre
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' - ' + str(second_nombre) + ' ?' 
                print(calcul) 
                reponseVraie = premier_nombre - second_nombre
            
-        elif niveau == 2: # Permet de choisir la difficulté au rang moyen 
+        elif niveau == 2:
             
            premier_nombre = random.randint(1,50) # Le premier nombre choisit aléatoirement se situera entre 1 et 50
            second_nombre = random.randint(1,20) # Le premier nombre choisit aléatoirement se situera entre 1 et 20
@@ -99,7 +102,15 @@ while continuer:
                calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' x ' + str(second_nombre) + ' ?' 
                print(calcul) 
                reponseVraie = premier_nombre * second_nombre
-               
+        
+        elif niveau == 4 :
+            
+            premier_nombre = random.randint(1,10)
+            second_nombre = random.randint(1,10)
+            calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' x ' + str(second_nombre) + ' ?' 
+            print(calcul) 
+            reponseVraie = premier_nombre * second_nombre
+            
         else:
             print("Votre choix n'est pas disponible veuillez recommencer !") # L'utilisateur n'a pas choisi un nombre parmi ceux qu'il doit choisir ...
            
@@ -115,7 +126,7 @@ while continuer:
                 
                 if chance == 1 :
                     
-                    reponseUtilisateur2 = int(input("Quelle est votre réponse a ce calcul ?")) # 2ème tentative de l'utilisateur
+                    reponseUtilisateur2 = int(input("Quelle est votre réponse a ce calcul ? ")) # 2ème tentative de l'utilisateur
                     
                     if reponseUtilisateur2 == reponseVraie : # L'utilisateur a répondu correctement au bout de sa deuxième tentative.
                     
@@ -125,6 +136,9 @@ while continuer:
                         temps_total = int(fin) - int(debut) # On soustrait les deux durées enregistrées pour voir combien de temps il s'est écoulé entre les deux prises de temps
                         phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêche toi !'
                         print(phrase_temps)
+                        print(" ")
+                        temps_manche += temps_total
+                        
                     else : 
                         
                         print("Faux , ça fait deux erreurs on change de question !") # L'utilisateur n'a pas trouvé la bonne réponse dommage ...
@@ -135,6 +149,8 @@ while continuer:
                         temps_total = int(fin) - int(debut)
                         phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul sans trouver la réponse ? Ba bravo !'
                         print(phrase_temps)
+                        print(" ")
+                        temps_manche += temps_total
             else:
                 
                print("Du premier coup , bien joué !") # L'utilisateur trouve la bonne réponse du premier coup
@@ -144,21 +160,26 @@ while continuer:
                temps_total = int(fin) - int(debut)
                phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêche toi !'
                print(phrase_temps)
+               print(" ")
+               temps_manche += temps_total
             break # La boucle while s'arrête afin de reprendre un nouveau calcul et que son nombre de vie soit réinitialisé 
         
     points_max = nombre_parties * 3 # Nombre de points maximum que peut obtenir l'utilisateur en fonction de son nombre de partie
     
     reponse = 'Vous avez eu ' + str(point) + ' points sur ' + str(points_max) + ' maximum, bien joué ! ' # On prépare la phrase que le programme affichera en y mettant les points obtenus par l'utilisateur
+    reponse_temps = 'Vous avez pris ' + str(temps_manche) + ' secondes pour répondre à ' + str(nombre_parties) + ' calculs... '
     
     if vie == 0 :
         
         print('Il ne vous reste plus de vies , fin du jeu ! ')
         print(reponse) # On lui affiche son nombre de points
+        print(reponse_temps)
         Nouvelle_partie = input("Nouvelle partie ? ")
         
     else : 
         
         print(reponse) # On lui affiche son nombre de points
+        print(reponse_temps)
         Nouvelle_partie = input("Nouvelle manche ? ")
     
     if Nouvelle_partie not in ('o', 'oui', 'ok' , 'yes'):
