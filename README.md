@@ -40,17 +40,15 @@ while continuer:
            
            if operation == 1 :
                
-               print(premier_nombre)  # On affiche le premier nombre qui a été choisi aléatoirement
-               print('+')  # On affiche le signe correspondant ( 1 = + , 2 = - , 3 = *)
-               print(second_nombre) # On affiche le second nombre qui a été choisi aléatoirement
-               reponseVraie = premier_nombre + second_nombre # Il s'agit du résultat que l'utilisateur est censé obtenir
-           else :
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' + ' + str(second_nombre) + ' ?'
+               print(calcul)
+               reponseVraie = premier_nombre + second_nombre
                
-               print(premier_nombre)  
-               print('-')  
-               print(second_nombre)
-               reponseVraie = premier_nombre - second_nombre 
+           else : 
                
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' - ' + str(second_nombre) + ' ?' 
+               print(calcul) 
+               reponseVraie = premier_nombre - second_nombre
            
         elif niveau == 2:
             
@@ -60,23 +58,20 @@ while continuer:
            
            if operation == 1 : 
                
-               print(premier_nombre)  
-               print('+')  
-               print(second_nombre) 
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' + ' + str(second_nombre) + ' ?' 
+               print(calcul) 
                reponseVraie = premier_nombre + second_nombre 
                
            elif operation == 2 :
                
-               print(premier_nombre)  
-               print('-')  
-               print(second_nombre)
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' - ' + str(second_nombre) + ' ?' 
+               print(calcul) 
                reponseVraie = premier_nombre - second_nombre
                
            else:
                
-               print(premier_nombre)  
-               print('*')  
-               print(second_nombre)
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' x ' + str(second_nombre) + ' ?' 
+               print(calcul) 
                reponseVraie = premier_nombre * second_nombre
                
         elif niveau == 3 :
@@ -87,23 +82,20 @@ while continuer:
            
            if operation == 1 : 
                
-               print(premier_nombre)  
-               print('+')  
-               print(second_nombre)
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' + ' + str(second_nombre) + ' ?' 
+               print(calcul) 
                reponseVraie = premier_nombre + second_nombre
                
            elif operation == 2 :
                
-               print(premier_nombre)  
-               print('-')  
-               print(second_nombre)
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' - ' + str(second_nombre) + ' ?' 
+               print(calcul) 
                reponseVraie = premier_nombre - second_nombre
                
            else :
                
-               print(premier_nombre)  
-               print('*')  
-               print(second_nombre)
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' x ' + str(second_nombre) + ' ?' 
+               print(calcul) 
                reponseVraie = premier_nombre * second_nombre
                
         else:
@@ -165,7 +157,7 @@ while continuer:
     else : 
         
         print(reponse) # On lui affiche son nombre de points
-        Nouvelle_partie = input("Nouvelle partie ? ")
+        Nouvelle_partie = input("Nouvelle manche ? ")
     
     if Nouvelle_partie not in ('o', 'oui', 'ok' , 'yes'):
     
