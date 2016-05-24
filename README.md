@@ -32,25 +32,27 @@ while continuer:
         
         debut = time.time() # On enregistre le temps lorsque le programme se lance 
         
-        if niveau == 1 :
+        if niveau == 1 : # Permet de choisir la difficulté au rang facile
             
            premier_nombre = random.randint(1,200) # Le premier nombre choisit aléatoirement se situera entre 1 et 200
            second_nombre = random.randint(1,100) # Le second nombre choisit aléatoirement se situera entre 1 et 100
            operation = random.randint(1,2) # Le signe de l'opération sera choisi aléatoirement parmi les signes disponibles en fonction du niveau
            
-           if operation == 1 :
+           if operation == 1 : 
                
-               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' + ' + str(second_nombre) + ' ?'
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' + ' + str(second_nombre) + ' ?' # Calculer la somme du premier et du second nombre
                print(calcul)
                reponseVraie = premier_nombre + second_nombre
                
            else : 
                
-               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' - ' + str(second_nombre) + ' ?' 
+               calcul = 'Quel est le résultat de ' + str(premier_nombre) + ' - ' + str(second_nombre) + ' ?'  # Calculer la différence du premier et du second nombre
+               print(calcul)
+               reponseVraie = premier_nombre - second_nombre
                print(calcul) 
                reponseVraie = premier_nombre - second_nombre
            
-        elif niveau == 2:
+        elif niveau == 2: # Permet de choisir la difficulté au rang moyen 
             
            premier_nombre = random.randint(1,50) # Le premier nombre choisit aléatoirement se situera entre 1 et 50
            second_nombre = random.randint(1,20) # Le premier nombre choisit aléatoirement se situera entre 1 et 20
