@@ -14,17 +14,22 @@
 - A la fin afficher les calculs posés avec les réponses que l'utilisateur a mit et la bonne réponse ainsi que le nombre de point gagné par question/ points totaux.
 
 import time # En important le module time , on va pouvoir utiliser le temps dans notre programme 
+
 import random # En important le module random cela va nous permettre d'utiliser des fonctions générant des nombres aléatoires.
 
 continuer = True # On initialise la variable pour qu'elle puisse rentrer dans la boucle while
+
+print("               === VIVE LE CALCUL MENTAL ===  ")
 
 while continuer: # La boucle while permet à l'utilisateur de lancer le programme autant de fois qu'il le souhaitera
     
     nombre_parties = int(input("Combien de parties voulez-vous faire? : ")) # On génère une variable qui permettera à l'utilisateur de choisir le nombre de parties qu'il voudra faire
     
-    print('Le niveau 4 correspond aux tables de multiplication apprises en primaire')
+    print("Les niveaux 1 , 2 et 3 correspondent à des niveaux de difficultés , du plus facile (1) au plus difficile (3)" )
     
-    niveau = int(input("Vous choisissez le niveau 1 , 2 , 3 ou 4 ? : ")) # L'utilisateur introduira un nombre entre 1 et 3 lui permettant de choisir un niveau plus ou moins facile.
+    print('Le niveau 4 correspond aux tables de multiplications apprises à l école primaire') # On affiche une aide à l'utilisateur
+    
+    niveau = int(input("Choisissez votre niveau 1 , 2 , 3 ou 4 ? : ")) # L'utilisateur introduira un nombre entre 1 et 3 lui permettant de choisir un niveau plus ou moins facile.
     
     point = 0 # On initialise le nombre de points de l'utilisateur
     
@@ -122,7 +127,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
                           
             if reponseUtilisateur != reponseVraie : # Si l'utilisateur donne une réponse différente de la réponse vraie et que son nombre de vie est différent de 1 alors il a une seconde chance
             
-                print("Faux , essaie encore !") 
+                print("Faux , essayez encore !") 
                 vie -= 1 # Le nombre de vie de l'utilisateur diminue de 1
                 chance = 1 # L'utilisateur a le droit à un second essai, il peut recommencer.
                 
@@ -136,7 +141,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
                         point += 1 # L'utilisateur gagne 1 point au lieu de 3 ...
                         fin = time.time() # On enregistre le temps écoulé une seconde fois
                         temps_total = int(fin) - int(debut) # On soustrait les deux durées enregistrées pour voir combien de temps il s'est écoulé entre les deux prises de temps
-                        phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêche toi !'
+                        phrase_temps = 'Vous avez pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêchez vous !'
                         print(phrase_temps)
                         print(" ") # Permet de sauter une ligne entre chaque calcul
                         temps_manche += temps_total # On ajoute au temps total le temps que l'utilisateur a mis à cette manche
@@ -149,7 +154,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
                         point += 0 # L'utilisateur ne gagne donc pas de points.
                         fin = time.time()
                         temps_total = int(fin) - int(debut) # On soustrait le temps à la fin de la partie au temps au début de la partie
-                        phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul sans trouver la réponse ? Ba bravo !'
+                        phrase_temps = 'Vous avez pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul sans trouver la réponse ? Ba bravo !'
                         print(phrase_temps)
                         print(" ")
                         temps_manche += temps_total # On a joute au temps total le temps que l'utilisateur a mis pour répondre au calcul 
@@ -160,7 +165,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
                chance = 0 # Il n'a donc pas besoin de chance ...
                fin = time.time()
                temps_total = int(fin) - int(debut)
-               phrase_temps = 'Tu as pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêche toi !' # Le temps qu'a mis l'utilisateur à répondre au calcul
+               phrase_temps = 'Vous avez pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêchez vous !' # Le temps qu'a mis l'utilisateur à répondre au calcul
                print(phrase_temps)
                print(" ")
                temps_manche += temps_total
@@ -174,7 +179,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
     
     if vie == 0 : #Si l'utilisateur n'a plus de vie (...)
         
-        print('Il ne vous reste plus de vies , fin du jeu ! ')
+        print('Il ne vous reste plus de vies , fin de la partie ! ')
         print(reponse) # On lui affiche son nombre de points
         print(reponse_temps)
         Nouvelle_partie = input("Nouvelle partie ? ") # (...) on lui propose de recommencer une nouvelle partie
