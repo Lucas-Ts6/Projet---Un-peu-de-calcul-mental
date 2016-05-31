@@ -109,7 +109,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
                
         else:
             print("Votre choix n'est pas disponible veuillez recommencer !") # L'utilisateur n'a pas choisi un nombre parmi ceux qu'il doit choisir ...
-            
+            break
            
         reponseUtilisateur = int(input("Quelle est votre réponse a ce calcul ? ")) # L'utilisateur entrera la réponse qu'il pense juste
         
