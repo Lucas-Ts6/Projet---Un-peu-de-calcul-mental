@@ -166,7 +166,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
                    chance = 0 # Il n'a donc pas besoin de chance ...
                    fin = time.time()
                    temps_total = int(fin) - int(debut)
-                   phrase_temps = 'Vous avez pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêchez v !' # Le temps qu'a mis l'utilisateur à répondre au calcul
+                   phrase_temps = 'Vous avez pris ' + str(temps_total) + ' secondes pour répondre à un simple calcul ? Dépêchez vous !' # Le temps qu'a mis l'utilisateur à répondre au calcul
                    print(phrase_temps)
                    print(" ")
                    temps_manche += temps_total
