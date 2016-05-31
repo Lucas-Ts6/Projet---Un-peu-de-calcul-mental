@@ -174,11 +174,16 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
         
     points_max = nombre_parties * 3 # Nombre de points maximum que peut obtenir l'utilisateur en fonction de son nombre de partie
     
-    reponse = 'Vous avez eu ' + str(point) + ' points sur ' + str(points_max) + ' maximum, bien joué ! ' # On prépare la phrase que le programme affichera en y mettant les points obtenus par l'utilisateur    
-    reponse_temps = 'Vous avez pris ' + str(temps_manche) + ' secondes pour répondre à ' + str(nombre_parties) + ' calculs... ' # On détermine le nombre de secondes que l'utilisateur a mis au jeu               
-    print(reponse) # On lui affiche son nombre de points
-    print(reponse_temps)
-    Nouvelle_partie = input("Nouvelle manche ? ") # On lui propose de recommencer une nouvelle partie
+    if erreur == 0 : 
+        reponse = 'Vous avez eu ' + str(point) + ' points sur ' + str(points_max) + ' maximum, bien joué ! ' # On prépare la phrase que le programme affichera en y mettant les points obtenus par l'utilisateur    
+        reponse_temps = 'Vous avez pris ' + str(temps_manche) + ' secondes pour répondre à ' + str(nombre_parties) + ' calculs... ' # On détermine le nombre de secondes que l'utilisateur a mis au jeu               
+        print(reponse) # On lui affiche son nombre de points
+        print(reponse_temps)
+        Nouvelle_partie = input("Nouvelle manche ? ") # On lui propose de recommencer une nouvelle partie
+        
+    else : 
+        
+        Nouvelle_partie = input("Nouvelle manche ? ")
     
     if Nouvelle_partie not in ('o', 'oui', 'ok' , 'yes'): # Si l'utilisateur répond par les réponses proposées dans la parenthèse alors il recommence une partie ...
     
