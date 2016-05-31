@@ -26,6 +26,8 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
     
     temps_manche = 0 # On initialise le temps total
     
+    erreur = 0 
+    
     for i in range (0,nombre_parties) : # On crée la boucle par rapport au nombre de parties choisies
         
         debut = time.time() # On enregistre le temps lorsque le programme se lance 
@@ -109,6 +111,7 @@ while continuer: # La boucle while permet à l'utilisateur de lancer le programm
                
         else:
             print("Votre choix n'est pas disponible veuillez recommencer !") # L'utilisateur n'a pas choisi un nombre parmi ceux qu'il doit choisir ...
+            erreur = 1
             break
            
         reponseUtilisateur = int(input("Quelle est votre réponse a ce calcul ? ")) # L'utilisateur entrera la réponse qu'il pense juste
